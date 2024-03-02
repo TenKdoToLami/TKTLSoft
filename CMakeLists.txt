@@ -10,7 +10,7 @@ file(GLOB SOURCES "src/*.c")
 file(GLOB HEADERS "src/*.h")
 
 # Specify the public header files
-set(PUBLIC_HEADERS "include/helloWorld.h" ${HEADERS})  # Add additional headers
+set(PUBLIC_HEADERS "include/helloWorld.h" "include/TKTL_Math.h" ${HEADERS})  # Add additional headers
 
 # Create a shared library from the source files
 add_library(TKTLSoft SHARED ${SOURCES})
