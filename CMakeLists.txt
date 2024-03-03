@@ -16,13 +16,14 @@ set(PUBLIC_HEADERS "include/helloWorld.h" "include/TKTL_Math.h" ${HEADERS})  # A
 add_library(TKTLSoft SHARED ${SOURCES})
 
 # Set the location for installation
+# Install library and headers to system library and include directories
 install(TARGETS TKTLSoft
-        LIBRARY DESTINATION lib
-        PUBLIC_HEADER DESTINATION include
-        RUNTIME DESTINATION bin) # Install library into /usr/bin
+        LIBRARY DESTINATION /usr/local/lib
+        PUBLIC_HEADER DESTINATION /usr/local/include
+        RUNTIME DESTINATION /usr/local/bin) # Install library into /usr/local/bin
 
 # Add an install command for the public headers
-install(FILES ${PUBLIC_HEADERS} DESTINATION include)
+install(FILES ${PUBLIC_HEADERS} DESTINATION /usr/local/include)
 
 # Locate the test source files
 file(GLOB TEST_SOURCES "test/*.c")
@@ -35,6 +36,9 @@ foreach(test_source ${TEST_SOURCES})
     # Create an executable for the test
     add_executable(${test_name}_exe ${test_source})
     
-    # Link the test executable with the library being tested
+    # Link the test executable with the library being tested and TKTLSoft
     target_link_libraries(${test_name}_exe TKTLSoft)
+    
+    # Include the source file containing IsPrime function
+    target_sources(${test_name}_exe PRIVATE src/TKTL_Math.c)
 endforeach()

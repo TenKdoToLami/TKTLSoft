@@ -2,16 +2,13 @@
 #define _TKTL_MATH_
 
 
-
-void Do(void);
-
-
-
-
-
-
-
-
+/**
+ * @brief Checks if a given number is prime or not
+ * it checks iteratively if it is prime with perfect precision at cost of speed
+ * @param Number The number to be checked for primality
+ * @return int 1 if the number is prime, 0 otherwise
+ */
+int IsPrime(int Number);
 
 
 
