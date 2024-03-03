@@ -12,7 +12,7 @@ int TestPrimes(int LowerBound, int UpperBound,const int *PrimeArray)
 
     const int Cases = UpperBound - LowerBound + 1;
     int Success = 0;
-    int *Pointer = PrimeArray;
+    const int *Pointer = PrimeArray;
 
     printf("\nTesting IsPrime(n) for numbers between %d and %d\n", LowerBound, UpperBound);
     for (int i = LowerBound; i <= UpperBound; i++)
@@ -47,11 +47,11 @@ int main(int argc, char *argv[])
      */
 {
     int TotalSuccesses = 0;
-    const Primes1 [] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29,31, 37, 41, 43, 47, 53, 59, 61, 67, 71,73, 79, 83, 89, 97, 101};
+    const int Primes1 [] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29,31, 37, 41, 43, 47, 53, 59, 61, 67, 71,73, 79, 83, 89, 97, 101};
     
     TotalSuccesses += TestPrimes(1,100,Primes1);
 
-    const Primes2 [] =  {   101, 103, 107, 109, 113, 127, 131, 137, 139, 149,
+    const int Primes2 [] =  {   101, 103, 107, 109, 113, 127, 131, 137, 139, 149,
                             151, 157, 163, 167, 173, 179, 181, 191, 193, 197,
                             199, 211, 223, 227, 229, 233, 239, 241, 251, 257,
                             263, 269, 271, 277, 281, 283, 293, 307, 311, 313,
@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
                             983,  991, 997, 1009};
     TotalSuccesses += TestPrimes(100,1000,Primes2);
 
-    const Primes3 [] = {    800011, 800029, 800053, 800057, 800077, 800083, 800089, 800113, 800117, 800119,
+    const int Primes3 [] = {    800011, 800029, 800053, 800057, 800077, 800083, 800089, 800113, 800117, 800119,
                             800123, 800131, 800143, 800159, 800161, 800171, 800209, 800213, 800221, 800231,
                             800237, 800243, 800281, 800287, 800291, 800311, 800329, 800333, 800351, 800357,
                             800399, 800407, 800417, 800419, 800441, 800447, 800473, 800477, 800483, 800497,
