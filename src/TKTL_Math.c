@@ -1,21 +1,20 @@
 #include "TKTL_Math.h"
 
 
-int IsPrime(int Number)
+int IsPrime(int number)
 {
-    if (Number <= 1)
+    if (number <= 1)
         return 0;
 
-    if (Number == 2 || Number == 3)
+    if (number == 2 || number == 3)
         return 1;
 
-    if (Number % 2 == 0)
+    if (number % 2 == 0)
         return 0;
 
-    for (int i = 3; i * i <= Number; i+=2)
-        if (Number % i == 0)
+    for (int i = 3; i * i <= number; i+=2)
+        if (number % i == 0)
             return 0;
-
 
     return 1;
 }

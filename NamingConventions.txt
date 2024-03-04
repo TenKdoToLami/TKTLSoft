@@ -1,0 +1,11 @@
+Small list of naming convetions for this repository
+
+header files            TKTL_HeaderFile.h
+implementation files    TKTL_ImplementationFile.c
+
+scripts                 thisIsScript.sh
+
+macros                  THIS_IS_MACRO
+custom types            ThisIsCustomType
+functions               ThisIsFunction
+variables               thisIsVariable

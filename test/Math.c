@@ -1,41 +1,15 @@
 #include <stdio.h>
 #include "TKTL_Math.h"
-
+#include "HelloWorld.h"
 #define EXIT_SUCCESS 0
 #define EXIT_FAILURE 1
 
 
 
 
-int TestPrimes(int LowerBound, int UpperBound,const int *PrimeArray)
-{
+int TestPrimes(int lowerBound, int upperBound,const int *primeArray);
 
-    const int Cases = UpperBound - LowerBound + 1;
-    int Success = 0;
-    const int *Pointer = PrimeArray;
-
-    printf("\nTesting IsPrime(n) for numbers between %d and %d\n", LowerBound, UpperBound);
-    for (int i = LowerBound; i <= UpperBound; i++)
-    {
-        if (i == *Pointer)
-        {
-            if (IsPrime(i) == 1)
-                Success++;
-            else
-                printf("Failed %d\n",*Pointer);
-            Pointer++;
-        }
-        else
-            if (IsPrime(i) == 0)
-                Success++;
-            else
-                printf("Failed %d\n",i);
-    }
-
-    printf("%d out of %d tests passed (%f%%)\n", Success, Cases, 1.0*Success * 100 / Cases);
-    return Success == Cases;
-}
-
+void Finalize(int totalSuccesses,int totalCases);
 
 
 int main(int argc, char *argv[]) 
@@ -45,13 +19,15 @@ int main(int argc, char *argv[])
     /*
      *----------------------------------------------------------------
      */
-{
-    int TotalSuccesses = 0;
-    const int Primes1 [] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29,31, 37, 41, 43, 47, 53, 59, 61, 67, 71,73, 79, 83, 89, 97, 101};
-    
-    TotalSuccesses += TestPrimes(1,100,Primes1);
 
-    const int Primes2 [] =  {   101, 103, 107, 109, 113, 127, 131, 137, 139, 149,
+
+{
+    int totalSuccesses = 0;
+    const int primes1 [] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29,31, 37, 41, 43, 47, 53, 59, 61, 67, 71,73, 79, 83, 89, 97, 101};
+    
+    totalSuccesses += TestPrimes(1,100,primes1);
+
+    const int primes2 [] =  {   101, 103, 107, 109, 113, 127, 131, 137, 139, 149,
                             151, 157, 163, 167, 173, 179, 181, 191, 193, 197,
                             199, 211, 223, 227, 229, 233, 239, 241, 251, 257,
                             263, 269, 271, 277, 281, 283, 293, 307, 311, 313,
@@ -66,9 +42,9 @@ int main(int argc, char *argv[])
                             839, 853, 857, 859, 863, 877, 881, 883, 887, 907,
                             911, 919, 929, 937, 941, 947, 953, 967, 971, 977,
                             983,  991, 997, 1009};
-    TotalSuccesses += TestPrimes(100,1000,Primes2);
+    totalSuccesses += TestPrimes(100,1000,primes2);
 
-    const int Primes3 [] = {    800011, 800029, 800053, 800057, 800077, 800083, 800089, 800113, 800117, 800119,
+    const int primes3 [] = {800011, 800029, 800053, 800057, 800077, 800083, 800089, 800113, 800117, 800119,
                             800123, 800131, 800143, 800159, 800161, 800171, 800209, 800213, 800221, 800231,
                             800237, 800243, 800281, 800287, 800291, 800311, 800329, 800333, 800351, 800357,
                             800399, 800407, 800417, 800419, 800441, 800447, 800473, 800477, 800483, 800497,
@@ -106,9 +82,9 @@ int main(int argc, char *argv[])
                             804803, 804823, 804829, 804833, 804847, 804857, 804877, 804889, 804893, 804901,
                             804913, 804919, 804929, 804941, 804943, 804983, 804989, 804997, 805019, 805027,
                             805031, 805033, 805037, 805061, 805067};
-    TotalSuccesses += TestPrimes(800000,805067,Primes3);
+    totalSuccesses += TestPrimes(800000,805067,primes3);
 
-    printf("\n -- %d / 3 --\n", TotalSuccesses);
+    
 }
 
 
@@ -117,5 +93,46 @@ int main(int argc, char *argv[])
      */
 
 
+
+
+    Finalize(totalSuccesses,3);
+
     return EXIT_SUCCESS;
+}
+
+
+
+int TestPrimes(int lowerBound, int upperBound,const int *primeArray)
+{
+
+    const int cases = upperBound - lowerBound + 1;
+    int success = 0;
+    const int *pointer = primeArray;
+
+    printf("Testing IsPrime(n) for numbers between %d and %d\n", lowerBound, upperBound);
+    for (int i = lowerBound; i <= upperBound; i++)
+    {
+        if (i == *pointer)
+        {
+            if (IsPrime(i) == 1)
+                success++;
+            else
+                printf("Failed %d\n",*pointer);
+            pointer++;
+        }
+        else
+            if (IsPrime(i) == 0)
+                success++;
+            else
+                printf("Failed %d\n",i);
+    }
+
+    printf("%d out of %d tests passed (%f%%)\n\n", success, cases, 1.0*success * 100 / cases);
+    return success == cases;
+}
+
+
+void Finalize(int totalSuccesses,int totalCases)
+{
+    printf(" -- %d / %d --\n", totalSuccesses, totalCases);
 }

@@ -3,29 +3,8 @@
 
 #include <stdio.h>
 
-
-void helloWorld(void);
-
-
-
-
-
-
-
-
-
+void HelloWorld();
 
 
 
 #endif // _HELLO_WORLD_
-
-
-
-
-
-
-
-
-
-
-

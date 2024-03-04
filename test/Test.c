@@ -1,12 +1,10 @@
 #include <stdio.h>
-#include "helloWorld.h"
-#include "TKTL_Math.h"
+#include "HelloWorld.h"
 
 
 
 int main(int argc, char *argv[])
 {
-    helloWorld();
-    
+    HelloWorld();
     return 0;
 }

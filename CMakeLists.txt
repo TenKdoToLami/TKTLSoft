@@ -10,7 +10,7 @@ file(GLOB SOURCES "src/*.c")
 file(GLOB HEADERS "src/*.h")
 
 # Specify the public header files
-set(PUBLIC_HEADERS "include/helloWorld.h" "include/TKTL_Math.h" ${HEADERS})  # Add additional headers
+set(PUBLIC_HEADERS "include/HelloWorld.h" "include/TKTL_Math.h" ${HEADERS})  # Add additional headers
 
 # Create a shared library from the source files
 add_library(TKTLSoft SHARED ${SOURCES})
@@ -39,6 +39,6 @@ foreach(test_source ${TEST_SOURCES})
     # Link the test executable with the library being tested and TKTLSoft
     target_link_libraries(${test_name}_exe TKTLSoft)
     
-    # Include the source file containing IsPrime function
-    target_sources(${test_name}_exe PRIVATE src/TKTL_Math.c)
+    # Include the source files from the src directory
+    target_sources(${test_name}_exe PRIVATE ${SOURCES})
 endforeach()
