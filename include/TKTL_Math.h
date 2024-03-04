@@ -14,14 +14,3 @@ int IsPrime(int number);
 
 
 #endif // _TKTL_MATH_
-
-
-
-
-
-
-
-
-
-
-
