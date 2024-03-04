@@ -39,12 +39,11 @@ int BitArraySet(const struct BitArray * self, unsigned int position, int value);
 
 
 /**
- * @brief Inserts a bit at the specified position in the BitArray.
+ * @brief Inserts a bit at the specified end position in the BitArray.
  * @param self The BitArray instance.
- * @param position The zero-based index at which to insert the bit.
  * @param value The value of the bit to insert. If value is 1, the bit is set; if value is 0, the bit is cleared.
  */
-void BitArrayPushBack(struct BitArray * self, unsigned int position, int value);
+void BitArrayPushBack(struct BitArray * self, int value);
 
 
 /**
